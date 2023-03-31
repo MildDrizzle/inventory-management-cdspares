@@ -16,6 +16,8 @@ export default function AddProduct() {
     productid5: null,
     productid6: null,
     productName: "",
+    model: "",
+    balance: 0,
   });
 
   const handleChange = (e: any) => {
@@ -38,6 +40,8 @@ export default function AddProduct() {
           fileNumber: values.fileNumber,
           filePageNumber: values.pageNumber,
         },
+        model: values.model,
+        balance: values.balance,
       };
       await axios.post(createProductsAPI, { data });
       navigate("/");
@@ -111,6 +115,21 @@ export default function AddProduct() {
           <TextField
             id="productid6"
             label="Product ID 6"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <TextField
+            id="model"
+            label="Model"
+            variant="outlined"
+            onChange={handleChange}
+          />
+          <TextField
+            type="number"
+            id="balance"
+            label="Balance"
             variant="outlined"
             onChange={handleChange}
           />

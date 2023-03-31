@@ -13,20 +13,25 @@ const ProductsSchema = new Schema({
   },
   partNumber: {
     type: [String],
-    required: true,
   },
   partName: {
     type: String,
     required: true,
+  },
+  balance: {
+    type: Number,
+    required: true,
+  },
+  model: {
+    type: String,
   },
   productDetails: [
     {
       id: Schema.Types.ObjectId,
       invoiceNumber: String,
       date: String,
-      recipt: String,
-      issue: String,
-      balance: String,
+      recipt: Number,
+      issue: Number,
       remark: String,
     },
   ],
