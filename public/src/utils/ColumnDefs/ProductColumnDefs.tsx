@@ -24,6 +24,24 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       },
     },
     {
+      field: "model",
+      headerName: "Model",
+      sortable: true,
+      width: 160,
+      valueGetter: (params: GridValueGetterParams) => {
+        return `${params.row.model || "-"}`;
+      },
+    },
+    {
+      field: "balance",
+      headerName: "Balance",
+      sortable: true,
+      width: 160,
+      valueGetter: (params: GridValueGetterParams) => {
+        return `${params.row.balance || "-"}`;
+      },
+    },
+    {
       field: "partNumber1",
       headerName: "Product ID 1",
       sortable: true,
