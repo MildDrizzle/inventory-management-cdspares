@@ -2,6 +2,7 @@ import { GridValueGetterParams } from "@mui/x-data-grid";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { Link } from "react-router-dom";
 
 export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
   return [
@@ -28,8 +29,16 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Model",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.model || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.model ? (
+              <Link to={`productdetail/${params.id}`}>{params.row.model}</Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -46,8 +55,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 1",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[0] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[0] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[0]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -55,8 +74,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 2",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[1] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[1] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[1]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -64,8 +93,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 3",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[2] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[3] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[3]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -73,8 +112,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 4",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[3] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[4] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[4]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -82,8 +131,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 5",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[4] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[5] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[5]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -91,8 +150,18 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       headerName: "Product ID 6",
       sortable: true,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) => {
-        return `${params.row.partNumber[5] || "-"}`;
+      renderCell: (params: GridValueGetterParams) => {
+        return (
+          <>
+            {params.row.partNumber[6] ? (
+              <Link to={`productdetail/${params.id}`}>
+                {params.row.partNumber[6]}
+              </Link>
+            ) : (
+              <span>-</span>
+            )}
+          </>
+        );
       },
     },
     {
@@ -101,7 +170,6 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       sortable: true,
       width: 160,
     },
-
     {
       field: "",
       headerName: "",
@@ -110,9 +178,6 @@ export const getProductColumnDefs = (navigate: any, deleteProduct: any) => {
       renderCell: (params: GridValueGetterParams) => {
         return (
           <>
-            <RemoveRedEyeIcon
-              onClick={() => navigate(`/productdetail/${params.id}`)}
-            />
             <EditIcon onClick={() => navigate(`/edit-product/${params.id}`)} />
             <DeleteIcon
               onClick={() => {
